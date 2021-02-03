@@ -55,10 +55,12 @@ a, a:hover, a:focus {
     left: -250px;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
+    /* background: #7386D5; */
+    background: #89b3e9; 
     color: #fff;
     transition: all 0.3s;
-    overflow-y: scroll;
+    overflow: hidden;
+    /* overflow-y: scroll; */
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
@@ -71,7 +73,8 @@ a, a:hover, a:focus {
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: #7386D5;
+    /* background: #7386D5; */
+    background: #98b9e4; 
     position: absolute;
     top: 10px;
     right: 10px;
@@ -82,7 +85,8 @@ a, a:hover, a:focus {
 }
 #dismiss:hover {
     background: #fff;
-    color: #7386D5;
+    /* color: #7386D5; */
+    color: #98b9e4; 
 }
 
 .overlay {
@@ -96,7 +100,8 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    /* background: #6d7fcc; */
+    background: #689ee6;
 }
 
 #sidebar ul.components {
@@ -115,13 +120,15 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
+    /* color: #7386D5; */
+    color: #98b9e4; 
     background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    /* background: #6d7fcc; */
+    background: #689ee6;
 }
 
 
@@ -145,7 +152,8 @@ a[aria-expanded="true"]::before {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    /* background: #6d7fcc; */
+    background: #689ee6;
 }
 
 ul.CTAs {
@@ -161,10 +169,12 @@ ul.CTAs a {
 }
 a.download {
     background: #fff;
-    color: #7386D5;
+    /* color: #7386D5; */
+    color: #98b9e4; 
 }
 a.article, a.article:hover {
-    background: #6d7fcc !important;
+    /* background: #6d7fcc !important; */
+    background: #689ee6 !important;
     color: #fff !important;
 }
 

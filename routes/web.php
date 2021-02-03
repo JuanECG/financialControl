@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FinancesController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
+Route::get('/',[HomeController::class, 'getHome']);
+
+
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('transfer', [FinancesController::class, 'getIndex']);
+    Route::get('stats', [FinancesController::class, 'getStatistics']);
+    Route::get('me', [FinancesController::class, 'getAccount']);
+
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
