@@ -5,7 +5,7 @@
     <!-- #DD1919 -->
     <img src="{{URL::asset('/images/logo.png')}}" alt="logo" height="50">
     <div class="sidebar-header">
-        <h3>!Bienvenido Usuario!</h3>
+        <h3>!Bienvenido {{Auth::user()->name}}!</h3>
     </div>
 
     <ul class="list-unstyled components">
