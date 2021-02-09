@@ -56,6 +56,18 @@ class FinancesController extends Controller
         return redirect('/');
     }
 
+    public function postCreateC(Request $request){
+        $id = Auth::id();         
+        $nCuenta = new Cuenta();
+        $nCuenta->nombre = $request->nombre;
+        $nCuenta->tipo = $request->tipo;
+        $nCuenta->saldo = $request->saldo;
+        $nCuenta->fecha_ingreso = Carbon::today();
+        $nCuenta->propietario_id = $id;
+        $nCuenta->save();
+        return redirect('/me');
+
+    }
     public function getStatistics(){
         return view('finances/statistics');
     }

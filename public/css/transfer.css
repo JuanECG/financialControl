@@ -9,6 +9,16 @@
     justify-content: space-between;
 }
 
+.btn.del {    
+    color:rgb(182, 16, 16);
+    border-radius: 2em;
+    margin-bottom: 10px;
+}
+.btn.edit {    
+    color:rgb(34, 36, 153);
+    border-radius: 2em;
+    margin-bottom: 10px;
+}
 
 .card {
     border-radius: 5px;
@@ -36,4 +46,20 @@
 }
 .bg-c-Egreso {
     background: linear-gradient(45deg,#ddd9da,#d3a5acd8);
+}
+.float{
+	position:fixed;
+    font-size: 30px;    
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:rgb(57, 86, 214);
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+.float:hover{
+    background-color:rgb(32, 57, 167) ;
 }

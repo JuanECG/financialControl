@@ -24,9 +24,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('trans/{filter}',[FinancesController::class, 'postCreateT']);  
     Route::get('stats', [FinancesController::class, 'getStatistics']);
     Route::get('me', [FinancesController::class, 'getAccount']);
-
+    Route::post('me', [FinancesController::class, 'postcreateC']);
 });
-
-
 
 require __DIR__.'/auth.php';

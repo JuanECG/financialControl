@@ -22,7 +22,17 @@
     <div class="col-md-12 col-xl-5">
         <div class="card bg-c-{{$trans['tipo']}}">
             <div class="card-block">
-                <h5 class="m-b-20"><strong>cuenta: </strong>{{$trans['nombre']}}</h5>
+                <div class="content">
+                    <h5 class="m-b-20"><strong>cuenta: </strong>{{$trans['nombre']}}</h5>
+                    <div>
+                        <button class="btn del">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button> 
+                        <button class="btn edit">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
                 <div class="content">
                     <p style="font-size: 20px; color:black"><strong>Descripción: </strong> {{$trans['desc']}}</p>
                     @if ($trans['tipo'] === 'Ingreso')
@@ -37,15 +47,15 @@
         </div>
     </div>
     @endforeach
- 
+
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
+    <button type="button" class="btn btn-primary float" data-toggle="modal" data-target="#formT">
+        <i class="fa fa-plus my-float"></i>
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="formT" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -74,43 +84,38 @@
     $(document).ready(function() {
         $("#stats, #me").removeClass("active");
         $("#transfer").addClass("active");
-        
+
         var filter = "{{$type}}";
         // 0 = day, 1= month, 2=year, 3= total
         console.log(filter);
-        //removing active class
-        // $("#dL, #dA, #mL, #mA, #yL, #yA, #tL, #tA").removeClass("active");
 
         // adding active class
-        if (filter==='0'){ 
-            $("#dL").addClass("active");              
+        if (filter === '0') {
+            $("#dL").addClass("active");
             $('.tab-highlighter').css({
-            'left':  $("#dA").closest('li').offset().left,
-            'width':  $("#dA").closest('li').outerWidth()
-            });               
-        }
-        else if(filter==='1'){
-            $("#mL, #mA").addClass("active");       
+                'left': $("#dA").closest('li').offset().left,
+                'width': $("#dA").closest('li').outerWidth()
+            });
+        } else if (filter === '1') {
+            $("#mL, #mA").addClass("active");
             $('.tab-highlighter').css({
-            'left':  $("#mA").closest('li').offset().left,
-            'width':  $("#yA").closest('li').outerWidth()
-            });    
-        }
-        else if(filter==='2'){
-            $("#yL, #yA").addClass("active");   
+                'left': $("#mA").closest('li').offset().left,
+                'width': $("#yA").closest('li').outerWidth()
+            });
+        } else if (filter === '2') {
+            $("#yL, #yA").addClass("active");
             $('.tab-highlighter').css({
-            'left':  $("#yA").closest('li').offset().left,
-            'width':  $("#tA").closest('li').outerWidth()
-            });   
-        }
-        else if(filter==='3'){
-            $("#tL, #tA").addClass("active");      
+                'left': $("#yA").closest('li').offset().left,
+                'width': $("#tA").closest('li').outerWidth()
+            });
+        } else if (filter === '3') {
+            $("#tL, #tA").addClass("active");
             $('.tab-highlighter').css({
-            'left':  $("#tA").closest('li').offset().left,
-            'width':  $("#tL").closest('li').outerWidth()
-            });      
+                'left': $("#tA").closest('li').offset().left,
+                'width': $("#tL").closest('li').outerWidth()
+            });
         }
-        
+
     });
 </script>
 

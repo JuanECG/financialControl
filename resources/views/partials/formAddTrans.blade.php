@@ -41,7 +41,7 @@
 
     <div class="form-group text-center">
         <button type="submit" class="btn btn-primary" style="padding:8px 100px;margin-top:25px;">
-            Añadir película
+            Añadir Transferencia
         </button>
     </div>
 
