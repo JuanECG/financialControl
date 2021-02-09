@@ -1,3 +1,4 @@
+$(document).ready(function() {
 /*Textbox Events*/
 $(document).on('focusin', 'navbar input.search-textbox', function(){
     if($(this).val() <= 0){
@@ -66,3 +67,4 @@ $(window).resize(function(){
 $(document).ready(function(){
 	TabHighlighter.refresh();
 });
+}

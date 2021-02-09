@@ -11,7 +11,7 @@
     <ul class="list-unstyled components">
         <p>Administra tus ingresos...</p>
         <li class="active" id="transfer">
-            <a href="{{url('/transfer')}}">
+            <a href="{{url('/trans/day')}}">
                 <span class="material-icons">
                     account_balance
                 </span>
@@ -87,13 +87,13 @@
             </div>
         </div>
     </div>
-    <div class="navbar navbar-fixed-top navbar-inverse tabs paper-shadow-bottom-z-2">
-        <div class="container-fluid">
+    <div class="navbar navbar-fixed-top navbar-inverse tabs paper-shadow-bottom-z-2" >
+        <div class="container-fluid" id="opt">
             <ul class="navbar-body list-inline">
-                <li class="active"><a class="active">Diario</a></li>
-                <li><a>Semanal</a></li>
-                <li><a>Mensual</a></li>
-                <li><a>Total</a></li>
+                <li id="dL" ><a id="dA"  href="{{url('/trans/day')}}">Diario</a></li>
+                <li id="mL" ><a id="mA"  href="{{url('/trans/month')}}">Mensual</a></li>
+                <li id="yL"><a id="yA"  href="{{url('/trans/year')}}">Anual</a></li>
+                <li id="tL"><a id="tA" href="{{url('/trans/total')}}">Total</a></li>
             </ul>
             <div class="tab-highlighter"></div>
         </div>

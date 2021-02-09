@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/styleNavbar.css')}}">
     <link rel="stylesheet" href="{{asset('css/styleMenu.css')}}">
 
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    @yield('css')
 
 
     @section('description')
@@ -36,12 +35,11 @@
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <!-- Bootstrap Js CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Navbar script -->
     <script src="{{asset('js/scriptNavbar.js')}}"></script>
     <!-- Menu script -->
     <script src="{{asset('js/scriptMenu.js')}}"></script>
+    
     @yield('script')
     
 </body>

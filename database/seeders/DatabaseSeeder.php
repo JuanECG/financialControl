@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->seedUsers();
 		$this->command->info('Tabla users inicializada con datos!');
+        //$this->seedCuentas();
+		//$this->command->info('Tabla cuentas inicializada con datos!');
     }
     private function seedUsers()
 	{
@@ -46,4 +48,11 @@ class DatabaseSeeder extends Seeder
 		$user->save();
 
 	}
+
+	private function seedCuentas()
+	{
+		DB::table('cuentas')->delete();
+
+	}
+	
 }

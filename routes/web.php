@@ -20,7 +20,8 @@ Route::get('/',[HomeController::class, 'getHome']);
 
 
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('transfer', [FinancesController::class, 'getIndex']);
+    Route::get('trans/{filter}', [FinancesController::class, 'getIndex']);
+    Route::post('trans/{filter}',[FinancesController::class, 'postCreateT']);  
     Route::get('stats', [FinancesController::class, 'getStatistics']);
     Route::get('me', [FinancesController::class, 'getAccount']);
 

@@ -1,0 +1,39 @@
+.container.trans {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    border: none;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.card .card-block {
+    padding: 25px;
+}
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+}
+
+.bg-c-Ingreso {
+    background: linear-gradient(45deg,#ddd9da,#75dfca);
+}
+.bg-c-Egreso {
+    background: linear-gradient(45deg,#ddd9da,#d3a5acd8);
+}

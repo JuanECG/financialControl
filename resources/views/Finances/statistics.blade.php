@@ -16,6 +16,7 @@
     $(document).ready(function() {
         $("#transfer, #me").removeClass("active");
         $("#stats").addClass("active");
+        document.getElementById("opt").style.display = 'none'; 
     });
     
 </script>
