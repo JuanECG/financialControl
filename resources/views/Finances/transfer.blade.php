@@ -13,7 +13,15 @@
 
 @section('content')
 <div class="container">
-    <h1>Mis transferencias</h1>
+    @if ($type == '0')
+    <h1>Mis transferencias diarias</h1>
+    @elseif ($type =='1')
+    <h1>Mis transferencias mensuales</h1>
+    @elseif ($type =='2')
+    <h1>Mis transferencias anuales</h1>
+    @else
+    <h1>Todas mis transferencias</h1>
+    @endif
     <hr>
     <br>
 </div>
@@ -24,13 +32,19 @@
             <div class="card-block">
                 <div class="content">
                     <h5 class="m-b-20"><strong>cuenta: </strong>{{$trans['nombre']}}</h5>
-                    <div>
-                        <button class="btn del">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                        </button> 
-                        <button class="btn edit">
+                    <div class="content" style="width: 80px;">
+                        <form method="POST" action="">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <input type="hidden" id="t_id" name="t_id" value="{{$trans['id']}}">
+                            <button class="btn del">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                        <button class="btn edit" data-toggle="modal" data-target="#form{{$trans['id']}}">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </button>
+                        </button>                                                                        
+                        @include('partials.modalEdit')
                     </div>
                 </div>
                 <div class="content">
@@ -49,12 +63,13 @@
     @endforeach
 
 
-    <!-- Button trigger modal -->
+    <!-- Button trigger modal add -->
     <button type="button" class="btn btn-primary float" data-toggle="modal" data-target="#formT">
         <i class="fa fa-plus my-float"></i>
     </button>
 
-    <!-- Modal -->
+
+    <!-- Modal Add  -->
     <div class="modal fade" id="formT" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -73,6 +88,7 @@
             </div>
         </div>
     </div>
+
 
 
 </div>

@@ -21,12 +21,22 @@
         <div class="col-md-5 col-xl-3">
             <div class="card bg-c-{{$cuenta['tipo']}} order-card">
                 <div class="card-block">
-                    <h6 class="m-b-20">{{$cuenta['tipo']}}</h6>
+                    <div class="content">
+                        <h6 class="m-b-20">{{$cuenta['tipo']}}</h6>
+                        <div class="content" style="width: 100px;">
+                            <button class="btn del">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn edit">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
                     <h2 class="text-right">
                         @if ($cuenta['tipo'] === 'cash')
                         <i class="fa fa-money f-left"></i>
                         @else
-                        <i class="fa fa-cart-plus f-left"></i>
+                        <i class="fa fa-credit-card f-left"></i>
                         @endif
                         <span>{{$cuenta['nombre']}}</span>
                     </h2>

@@ -17,14 +17,16 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/',[HomeController::class, 'getHome']);
 
-
-
 Route::group(['middleware' => 'auth'], function(){
     Route::get('trans/{filter}', [FinancesController::class, 'getIndex']);
     Route::post('trans/{filter}',[FinancesController::class, 'postCreateT']);  
+    Route::delete('trans/{filter}',[FinancesController::class, 'DeleteT']);
+    Route::put('trans/{filter}',[FinancesController::class, 'putEditT']);
     Route::get('stats', [FinancesController::class, 'getStatistics']);
     Route::get('me', [FinancesController::class, 'getAccount']);
     Route::post('me', [FinancesController::class, 'postcreateC']);
+    Route::delete('me',[FinancesController::class, 'DeleteC']);
+    // Route::put('me',[FinancesController::class, 'postEditC']);
 });
 
 require __DIR__.'/auth.php';

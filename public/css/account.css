@@ -18,6 +18,10 @@ body{
     background: linear-gradient(45deg,#FFB64D,#ffcb80);
 }
 
+.bg-c-yellow:hover {
+    background: linear-gradient(45deg,#f6a026,#fdb754);
+}
+
 .bg-c-pink {
     background: linear-gradient(45deg,#FF5370,#ff869a);
 }
@@ -47,4 +51,21 @@ body{
 
 .f-right {
     float: right;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn.del {    
+    color:rgb(182, 16, 16);
+    border-radius: 2em;
+    margin-bottom: 10px;
+}
+.btn.edit {    
+    color:rgb(34, 36, 153);
+    border-radius: 2em;
+    margin-bottom: 10px;
 }
