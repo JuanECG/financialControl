@@ -9,6 +9,13 @@ class Transacciones extends Model
 {
     //use HasFactory;
 
+    public function scopeTrans($query, $id){
+        return $query->select('transacciones.id')
+                    ->join('cuentas', 'transacciones.cuenta_id', '=', 'cuentas.id')    
+                    ->where('cuentas.id','=',$id)
+                    ->get();
+    }
+
     public function scopeDay($query)
     {
         return $query->select('cuentas.nombre', 'transacciones.*')

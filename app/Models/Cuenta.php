@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cuenta extends Model
 {
-    use HasFactory;
+    //use HasFactory;
+
+    public function scopeTrans($query)
+    {
+        return $query->select('transacciones.id')
+                ->join('transacciones', 'transacciones.cuenta_id', '=', 'cuentas.id')
+                ->get();        
+
+    }
 }

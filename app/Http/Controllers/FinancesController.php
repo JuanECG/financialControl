@@ -105,12 +105,38 @@ class FinancesController extends Controller
         $trans = Transacciones::where('id', '=', $request->t_id)->first();
         $cuenta = Cuenta::where('id', '=', $trans->cuenta_id)->first();
 
-        $trans->tipo = $request->tipo;
-        $trans->desc = $request->desc;
-        // update 'cantidad' in 'cuentas' table
-        if ($trans->cantidad != $request->cantidad) {
+        $n_saldo = 0;
 
-            if ($trans->tipo == 'Ingreso') {
+        if ($trans->cuenta_id != $request->cuenta) // cuenta changed
+        {
+            $this->DeleteT($request);
+            $this->postCreateT($request);
+            return redirect('/');
+        }
+        
+        if ($trans->tipo != $request->tipo) { //type changed
+
+            if ($trans->cantidad != $request->cantidad) $n_saldo = $request->cantidad;
+            else $n_saldo = $trans->cantidad;
+
+            if ($request->tipo == 'Ingreso') {
+                $cuenta->saldo = ($cuenta->saldo + $trans->cantidad) + $n_saldo;
+            } else {
+                $cuenta->saldo = ($cuenta->saldo - $trans->cantidad) - $n_saldo;
+            }
+            $trans->fecha = $request->fecha;
+            $trans->cuenta_id = $request->cuenta;
+            $trans->cantidad = $n_saldo;
+            $trans->tipo = $request->tipo;
+            $trans->desc = $request->desc;
+            $cuenta->save();
+            $trans->save();
+            return redirect('/');            
+        }
+        
+        if ($trans->cantidad != $request->cantidad) { //cantidad changed
+
+            if ($request->tipo == 'Ingreso') {
                 $cuenta->saldo = ($cuenta->saldo - $trans->cantidad) + $request->cantidad;
             } else {
                 $cuenta->saldo = ($cuenta->saldo + $trans->cantidad) - $request->cantidad;
@@ -121,6 +147,9 @@ class FinancesController extends Controller
 
         $trans->fecha = $request->fecha;
         $trans->cuenta_id = $request->cuenta;
+        $trans->cantidad = $request->cantidad;
+        $trans->tipo = $request->tipo;
+        $trans->desc = $request->desc;
         $cuenta->save();
         $trans->save();
         return redirect('/');
@@ -153,6 +182,28 @@ class FinancesController extends Controller
     }
 
     public function DeleteC(Request $request)
-    {
+    {        
+
+        $cuenta = Cuenta::where('id', '=', $request->c_id)->first();
+        $trans = Transacciones::Trans($request->c_id);        
+
+        foreach ($trans as $c_trans) {
+            $t = Transacciones::where('id', '=', $c_trans->id)->first();
+            $t->delete();
+        }
+
+        $cuenta->delete();
+
+        return redirect('/me');
+
+    }
+
+    public function postEditC(Request $request){
+        $cuenta = Cuenta::where('id', '=', $request->c_id)->first();
+        $cuenta->nombre = $request->nombre;
+        $cuenta->tipo = $request->tipo;
+        $cuenta->saldo = $request->saldo;
+        $cuenta->save();
+        return redirect('/me');
     }
 }

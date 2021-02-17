@@ -24,12 +24,19 @@
                     <div class="content">
                         <h6 class="m-b-20">{{$cuenta['tipo']}}</h6>
                         <div class="content" style="width: 100px;">
-                            <button class="btn del">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
-                            <button class="btn edit">
+                            <form method="POST" action="">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <input type="hidden" id="c_id" name="c_id" value="{{$cuenta['id']}}">
+                                <button class="btn del">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                            </form>
+
+                            <button class="btn edit" data-toggle="modal" data-target="#form{{$cuenta['id']}}">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </button>
+                            @include('partials.modalEditCuenta')
                         </div>
                     </div>
                     <h2 class="text-right">

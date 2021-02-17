@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('me', [FinancesController::class, 'getAccount']);
     Route::post('me', [FinancesController::class, 'postcreateC']);
     Route::delete('me',[FinancesController::class, 'DeleteC']);
-    // Route::put('me',[FinancesController::class, 'postEditC']);
+    Route::put('me',[FinancesController::class, 'postEditC']);
 });
 
 require __DIR__.'/auth.php';
