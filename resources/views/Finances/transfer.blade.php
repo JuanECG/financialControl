@@ -56,7 +56,7 @@
                     @endif
                 </div>
 
-                <h2 class="m-b-0">${{$trans['cantidad']}}<span class="f-right">{{$trans['fecha']}}</span></h2>
+                <h2 class="m-b-0">@money($trans['cantidad'])<span class="f-right">{{$trans['fecha']}}</span></h2>
             </div>
         </div>
     </div>

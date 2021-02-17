@@ -47,7 +47,7 @@
                         @endif
                         <span>{{$cuenta['nombre']}}</span>
                     </h2>
-                    <h2 class="m-b-0">${{$cuenta['saldo']}}<span class="f-right">{{$cuenta['fecha_ingreso']}}</span></h2>
+                    <h2 class="m-b-0">@money($cuenta['saldo'])<span class="f-right">{{$cuenta['fecha_ingreso']}}</span></h2>
                 </div>
             </div>
         </div>
