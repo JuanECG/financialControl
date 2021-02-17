@@ -9,6 +9,14 @@
        
 
 <h1>statistics content</h1>
+
+
+{!! $chart->container() !!}
+ 
+<script src="{{ $chart->cdn() }}"></script>
+ 
+{{ $chart->script() }}
+
 @endsection
 
 @section('script')

@@ -8,6 +8,10 @@ use Carbon\Carbon;
 use App\Models\Transacciones;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use ArielMejiaDev\LarapexCharts\Facades\LarapexChart;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class FinancesController extends Controller
 {
@@ -158,7 +162,21 @@ class FinancesController extends Controller
 
     public function getStatistics()
     {
-        return view('finances/statistics');
+        $egresos = DB::table('transacciones')->where('tipo','Egreso')->select(DB::raw('sum(cantidad) as suma'))->get();
+        $ingresos = DB::table('transacciones')->where('tipo','Ingreso')->select(DB::raw('sum(cantidad) as suma'))->get();
+        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+        $egreso = '';
+        $ingreso = '';
+        foreach($egresos as $alv2){
+           $egreso= (int)$alv2->suma;
+        }
+        foreach($ingresos as $alv2){
+            $ingreso= (int)$alv2->suma;
+         }
+        $chart = LarapexChart::setTitle('Ingresos y Egresos totales')
+                   ->setDataset([$ingreso, $egreso])
+                   ->setLabels(['Ingresos', 'Egresos']);
+        return view('finances/statistics',array('chart'=> $chart));
     }
 
     public function getAccount()
