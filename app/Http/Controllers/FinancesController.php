@@ -174,7 +174,7 @@ class FinancesController extends Controller
         foreach($ingresos as $alv2){
             $ingreso= (int)$alv2->suma;
          }
-        $chart = LarapexChart::setTitle('Ingresos y Egresos totales')
+        $chart = LarapexChart::setTitle('Resumen de Transacciones')
                    ->setDataset([$ingreso, $egreso])
                    ->setLabels(['Ingresos', 'Egresos']);
         return view('Finances.statistics',array('chart'=> $chart));
