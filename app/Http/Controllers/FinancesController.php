@@ -162,8 +162,9 @@ class FinancesController extends Controller
 
     public function getStatistics()
     {
-        $egresos = DB::table('transacciones')->where('tipo','Egreso')->select(DB::raw('sum(cantidad) as suma'))->get();
-        $ingresos = DB::table('transacciones')->where('tipo','Ingreso')->select(DB::raw('sum(cantidad) as suma'))->get();
+        $id = Auth::id();
+        $egresos = DB::table('transacciones')->where('tipo','Egreso')->where('propietario_id','=',$id)->select(DB::raw('sum(cantidad) as suma'))->get();
+        $ingresos = DB::table('transacciones')->where('tipo','Ingreso')->where('propietario_id','=',$id)->select(DB::raw('sum(cantidad) as suma'))->get();
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
         $egreso = '';
         $ingreso = '';
