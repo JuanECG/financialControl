@@ -6,7 +6,7 @@
 
     <div class="form-group">
         <label for="cantidad"><h3>Nombre:</h3></label>
-        <input type="text" class="form-control" id="nombre" name="nombre" value="{{$cuenta['nombre']}}">
+        <input type="text" class="form-control" id="nombre" name="nombre" value="{{$cuenta['nombre']}}" required>
     </div>
 
     <div class="form-group">
@@ -28,7 +28,7 @@
 
     <div class="form-group">
         <label for="cantidad"><h3>Saldo:</h3></label>
-        <input type="number" class="form-control" id="saldo" name="saldo" value="{{$cuenta['saldo']}}">
+        <input type="number" class="form-control" id="saldo" name="saldo" value="{{$cuenta['saldo']}}" required>
     </div>
 
     <div class="form-group text-center">

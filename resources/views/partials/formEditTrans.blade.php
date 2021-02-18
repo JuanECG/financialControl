@@ -21,12 +21,12 @@
 
     <div class="form-group">
         <label for="cantidad"><h3>Cantidad:</h3></label>
-        <input type="number" class="form-control" id="cantidad" name="cantidad" value="{{$trans['cantidad']}}">
+        <input type="number" class="form-control" id="cantidad" name="cantidad" value="{{$trans['cantidad']}}" required>
     </div>
 
     <div class="form-group">
         <label for="dec"><h3>Descripción: </h3></label>
-        <textarea name="desc" id="desc" class="form-control" rows="3">{{$trans['desc']}}</textarea>
+        <textarea name="desc" id="desc" class="form-control" rows="3" required>{{$trans['desc']}}</textarea>
     </div>
 
     <div class="form-group">
@@ -48,7 +48,7 @@
         <label for="fecha">
             <h3>Fecha de transacción</h3>
         </label>
-        <input class="form-control" type="date" id="fecha" name="fecha" value="{{$trans['fecha']}}">
+        <input class="form-control" type="date" id="fecha" name="fecha" value="{{$trans['fecha']}}" required>
     </div>
 
     <div class="form-group text-center">

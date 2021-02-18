@@ -9,7 +9,7 @@
     </div>
 
     <ul class="list-unstyled components">
-        <p>Administra tus ingresos...</p>
+        <p>Administra tus ingresos</p>
         <li class="active" id="transfer">
             <a href="{{url('/trans/day')}}">
                 <span class="material-icons">
