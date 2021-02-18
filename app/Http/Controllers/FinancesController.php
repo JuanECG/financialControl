@@ -8,7 +8,7 @@ use Carbon\Carbon;
 use App\Models\Transacciones;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use ArielMejiaDev\LarapexCharts\Facades\LarapexChart;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -173,7 +173,7 @@ class FinancesController extends Controller
         foreach($ingresos as $alv2){
             $ingreso= (int)$alv2->suma;
          }
-        $chart = LarapexChart::setTitle('Ingresos y Egresos totales')
+        $chart = (new LarapexChart)->setTitle('Ingresos y Egresos totales')
                    ->setDataset([$ingreso, $egreso])
                    ->setLabels(['Ingresos', 'Egresos']);
         return view('Finances.statistics',array('chart'=> $chart));
