@@ -6,10 +6,7 @@
 @endsection
 
 @section('content')
-       
-
-<h1>statistics content</h1>
-
+    
 
 {!! $chart->container() !!}
  

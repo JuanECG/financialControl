@@ -21,7 +21,7 @@ class FinancesController extends Controller
         $id = Auth::id();
         if ($filter === 'day') {
             return view(
-                'finances/transfer',
+                'Finances.transfer',
                 array(
                     'transacciones' => $trans = Transacciones::Day()->where('propietario_id', '=', $id),
                     'type' => 0,
@@ -30,7 +30,7 @@ class FinancesController extends Controller
             );
         } elseif ($filter === 'month') {
             return view(
-                'finances/transfer',
+                'Finances.transfer',
                 array(
                     'transacciones' => $trans = Transacciones::Month()->where('propietario_id', '=', $id),
                     'type' => 1,
@@ -40,7 +40,7 @@ class FinancesController extends Controller
         } elseif ($filter === 'year') {
             $id = Auth::id();
             return view(
-                'finances/transfer',
+                'Finances.transfer',
                 array(
                     'transacciones' => $trans = Transacciones::Year()->where('propietario_id', '=', $id),
                     'type' => 2,
@@ -49,7 +49,7 @@ class FinancesController extends Controller
             );
         } elseif ($filter === 'total') {
             return view(
-                'finances/transfer',
+                'Finances.transfer',
                 array(
                     'transacciones' => $trans = Transacciones::all()->where('propietario_id', '=', $id),
                     'type' => 3,
@@ -176,13 +176,13 @@ class FinancesController extends Controller
         $chart = LarapexChart::setTitle('Ingresos y Egresos totales')
                    ->setDataset([$ingreso, $egreso])
                    ->setLabels(['Ingresos', 'Egresos']);
-        return view('finances/statistics',array('chart'=> $chart));
+        return view('Finances.statistics',array('chart'=> $chart));
     }
 
     public function getAccount()
     {
         $id = Auth::id();
-        return view('finances/account', array('cuentas' => $cuenta = Cuenta::all()->where('propietario_id', '=', $id)));
+        return view('Finances.account', array('cuentas' => $cuenta = Cuenta::all()->where('propietario_id', '=', $id)));
     }
 
     public function postCreateC(Request $request)
